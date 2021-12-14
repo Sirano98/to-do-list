@@ -1,8 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Form } from "../form/form";
+import { TodoList } from "../todo-list/todo-list";
 
 export const MainPage = () => {
     return (
-        <Form />
+        <Fragment>
+            <Form />
+            <TodoList />
+        </Fragment>
     )
 }
