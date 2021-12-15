@@ -4,13 +4,12 @@ const addItem = () => {
     }
 };
 
-const removeItem = (payload) => {
+const removeItem = (id) => {
     return {
         type: "REMOVE_ITEM",
-        payload
+        payload: id
     }
 };
-
 
 const updateInput = (payload) => {
     return {

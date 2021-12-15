@@ -11,7 +11,7 @@ export const listReducer = (state = initialState, action) => {
             return createItem(state)
 
         case "REMOVE_ITEM":
-            return { ...state, item: state.items.filter(item => item.id !== action.payload) }
+            return { ...state, items: state.items.filter(item => item.id !== action.payload) }
 
         case "UPDATE_INPUT":
             return { ...state, inputValue: action.payload }

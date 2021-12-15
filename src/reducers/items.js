@@ -4,7 +4,6 @@ const createItem = (state) => {
         date: new Date().toLocaleDateString(),
         id: Date.now()
     }
-
     state.inputValue = "";
 
     return { ...state, items: [...state.items, newItem] }

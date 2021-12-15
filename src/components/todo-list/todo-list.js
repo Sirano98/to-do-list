@@ -9,7 +9,7 @@ export const TodoList = () => {
     return (
         <ul className="list-group">
             {
-                items.map(({ title, id, date }) => <TodoListItem title={title} key={id} date={date} />)
+                items.map(({ title, id, date }) => <TodoListItem title={title} key={id} date={date} id={id} />)
             }
         </ul>
     )
