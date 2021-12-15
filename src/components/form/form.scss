@@ -1,4 +1,12 @@
-.form {
+.wrapper{
     width: 80%;
-    margin: 3% auto 3% auto;
+    margin: 0px auto;
+
+    display: flex;
+    margin: 3% auto;
+    
+    .btn {
+        width: 20%;
+        margin-left: 20px;
+    }
 }
