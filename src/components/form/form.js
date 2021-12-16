@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateInput, addItem } from "../../actions";
+import { updateInput, addItem, showAlert } from "../../actions";
 import "./form.scss";
 
 export const Form = () => {
@@ -13,7 +13,13 @@ export const Form = () => {
 
     const onInputSubmit = (e) => {
         e.preventDefault();
-        dispatch(addItem());
+
+        if (inputValue.trim()) {
+            dispatch(addItem());
+            dispatch(showAlert("success"));
+        } else {
+            dispatch(showAlert());
+        }
     };
 
     return (

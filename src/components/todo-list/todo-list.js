@@ -6,6 +6,12 @@ import "./todo-list.scss";
 export const TodoList = () => {
     const items = useSelector(state => state.listReducer.items);
 
+    if (items.length === 0) {
+        return (
+            <p className="text text-center">Create new task</p>
+        )
+    };
+
     return (
         <ul className="list-group">
             {

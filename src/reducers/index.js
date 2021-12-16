@@ -9,6 +9,13 @@ const createItem = (state) => {
     return { ...state, items: [...state.items, newItem] }
 };
 
+const createAlert = (type) => {
+    let text = "";
+    type ? text = "Note has been added" : text = "Enter note text"
+    return text
+};
+
 export {
-    createItem
+    createItem,
+    createAlert
 };

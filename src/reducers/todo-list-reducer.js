@@ -1,4 +1,4 @@
-import { createItem } from "./items";
+import { createItem } from ".";
 
 const initialState = {
     inputValue: "",

@@ -4,10 +4,10 @@ const addItem = () => {
     }
 };
 
-const removeItem = (id) => {
+const removeItem = (payload) => {
     return {
         type: "REMOVE_ITEM",
-        payload: id
+        payload
     }
 };
 
@@ -18,8 +18,23 @@ const updateInput = (payload) => {
     }
 };
 
+const showAlert = (payload) => {
+    return {
+        type: "SHOW_ALERT",
+        payload
+    }
+};
+
+const hideAlert = () => {
+    return {
+        type: "HIDE_ALERT"
+    }
+};
+
 export {
     addItem,
     removeItem,
-    updateInput
+    updateInput,
+    showAlert,
+    hideAlert
 };
