@@ -31,10 +31,26 @@ const hideAlert = () => {
     }
 };
 
+const importantToggle = (payload) => {
+    return {
+        type: "IMPORTANT_ITEM_TOGGLE",
+        payload
+    }
+};
+
+const doneToggle = (payload) => {
+    return {
+        type: "DONE_ITEM_TOGGLE",
+        payload
+    }
+};
+
 export {
     addItem,
     removeItem,
     updateInput,
     showAlert,
-    hideAlert
+    hideAlert,
+    importantToggle,
+    doneToggle
 };

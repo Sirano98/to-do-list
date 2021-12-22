@@ -34,7 +34,8 @@ export const Form = () => {
                 onChange={e => onInputChange(e)}
                 value={inputValue}
             />
-            <button type="submit" className="btn btn-primary">Enter</button>
+            <button type="submit" className="btn btn-primary submit-btn">Enter</button>
         </form>
+
     )
 }

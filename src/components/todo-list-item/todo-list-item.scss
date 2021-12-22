@@ -3,7 +3,28 @@
     justify-content: space-between;
     align-items: center;
 
-    .date{
+    .text {
+        font-size: 20px;
+    }
+
+    .data-wrapper{
+        cursor: pointer;
+        width: 90%;
+    }
+
+    .important {
+        font-weight: 700;
+    }
+
+    .done {
+        text-decoration:line-through;
+    }
+
+    .date {
         margin-left: 10px;
+    }
+
+    .btn {
+        margin: 5px;
     }
 }

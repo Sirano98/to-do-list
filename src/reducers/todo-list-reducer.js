@@ -1,4 +1,4 @@
-import { createItem } from ".";
+import { createItem, itemStateToggle } from ".";
 
 const initialState = {
     inputValue: "",
@@ -15,6 +15,12 @@ export const listReducer = (state = initialState, action) => {
 
         case "UPDATE_INPUT":
             return { ...state, inputValue: action.payload }
+
+        case "IMPORTANT_ITEM_TOGGLE":
+            return itemStateToggle(state, action.payload, "important")
+
+        case "DONE_ITEM_TOGGLE":
+            return itemStateToggle(state, action.payload, "done")
 
         default:
             return state;
