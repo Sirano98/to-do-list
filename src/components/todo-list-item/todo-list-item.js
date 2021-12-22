@@ -18,7 +18,7 @@ export const TodoListItem = ({ title, id, date, important, done }) => {
         <li className="list-group-item item">
             <div className="data-wrapper"
                 onClick={() => dispatch(doneToggle(id))}>
-                <span className={`text ${cls}`}>{title}</span>
+                <span className={`item-text ${cls}`}>{title}</span>
                 <small className="date">{date}</small>
             </div>
             <div>

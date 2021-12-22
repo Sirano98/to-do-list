@@ -1,14 +1,14 @@
 import React from "react";
 import { Form } from "../form/form";
+import { Alert } from "../alert/alert";
 import { TodoList } from "../todo-list/todo-list";
-import { Filter } from "../filter/filter";
 import "./main-page.scss";
 
 export const MainPage = () => {
     return (
         <main className="main">
+            <Alert />
             <Form />
-            <Filter />
             <TodoList />
         </main>
     )
