@@ -45,6 +45,41 @@ const doneToggle = (payload) => {
     }
 };
 
+// const updateFilterInput = (payload) => {
+//     return {
+//         type: "UPDATE_FILTER_INPUT",
+//         payload
+//     }
+// };
+
+const showSearchResults = (payload) => {
+    return {
+        type: "SHOW_SEARCH_RESULTS",
+        payload
+    }
+};
+
+const showAll = (payload) => {
+    return {
+        type: "SHOW_ALL",
+        payload
+    }
+};
+
+const showDone = (payload) => {
+    return {
+        type: "SHOW_DONE",
+        payload
+    }
+};
+
+const showImportant = (payload) => {
+    return {
+        type: "SHOW_IMPORTANT",
+        payload
+    }
+};
+
 export {
     addItem,
     removeItem,
@@ -52,5 +87,10 @@ export {
     showAlert,
     hideAlert,
     importantToggle,
-    doneToggle
+    doneToggle,
+    // updateFilterInput,
+    showAll,
+    showDone,
+    showImportant,
+    showSearchResults
 };

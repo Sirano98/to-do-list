@@ -7,10 +7,6 @@ export const Form = () => {
     const dispatch = useDispatch();
     const inputValue = useSelector(state => state.listReducer.inputValue);
 
-    const onInputChange = (e) => {
-        dispatch(updateInput(e.target.value));
-    };
-
     const onInputSubmit = (e) => {
         e.preventDefault();
 
@@ -31,7 +27,7 @@ export const Form = () => {
                 type="text"
                 className="form-control"
                 placeholder="Enter note text"
-                onChange={e => onInputChange(e)}
+                onChange={e => dispatch(updateInput(e.target.value))}
                 value={inputValue}
             />
             <button type="submit" className="btn btn-primary submit-btn">Enter</button>

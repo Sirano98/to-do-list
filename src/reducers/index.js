@@ -29,11 +29,27 @@ const itemStateToggle = (state, payload, stateName) => {
         newItem,
         ...state.items.slice(index + 1)
     ]
-    return { ...state, items: newData }
+
+    const newVisibleItems = filterItems(newData, state.filter, state.searchInputValue);
+
+    return { ...state, items: newData, visibleItems: newVisibleItems }
+};
+
+const filterItems = (items, filter, searchStr) => {
+    if (searchStr.trim()) {
+        items = items.filter(item => item.title.indexOf(searchStr) > -1)
+    }
+    console.log(items);
+    if (filter) {
+        filter = filter.toLowerCase();
+        return items.filter(item => item[filter]);
+    }
+    return items;
 };
 
 export {
     createItem,
     createAlert,
-    itemStateToggle
+    itemStateToggle,
+    filterItems
 };

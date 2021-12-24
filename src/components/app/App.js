@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Header } from "../header/header";
-import { MainPage } from "../main-page/main-page";
-import { Filter } from "../filter/filter";
+import { MainPage } from "../pages/main-page/main-page";
+import { SearchPage } from "../pages/search-page/search-page";
 
 function App() {
     return (
@@ -15,8 +15,8 @@ function App() {
                     exatc
                 />
                 <Route
-                    path="/filter"
-                    element={<Filter />}
+                    path="/search"
+                    element={<SearchPage />}
                 />
             </Routes>
         </Fragment>
