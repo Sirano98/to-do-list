@@ -1,4 +1,4 @@
-import { createItem, filterItems, itemStateToggle } from ".";
+import { createItem, deleteItem, filterItems, itemStateToggle } from ".";
 
 const initialState = {
     inputValue: "",
@@ -11,11 +11,10 @@ const initialState = {
 export const listReducer = (state = initialState, action) => {
     switch (action.type) {
         case "ADD_ITEM":
-            return createItem(state)
+            return createItem(state, action.payload)
 
         case "REMOVE_ITEM":
-            const newItems = state.items.filter(item => item.id !== action.payload);
-            return { ...state, items: newItems, visibleItems: filterItems(newItems, state.filter) }
+            return deleteItem(state, action.payload)
 
         case "UPDATE_INPUT":
             return { ...state, inputValue: action.payload }
@@ -27,7 +26,7 @@ export const listReducer = (state = initialState, action) => {
             return itemStateToggle(state, action.payload, "done")
 
         case "SHOW_ALL":
-            return { ...state, visibleItems: state.items, filter: "" }
+            return { ...state, visibleItems: filterItems(state.items, action.payload, state.searchInputValue), filter: "" }
 
         case "SHOW_DONE":
             return { ...state, visibleItems: filterItems(state.items, action.payload, state.searchInputValue), filter: action.payload }

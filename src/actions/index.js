@@ -1,6 +1,7 @@
-const addItem = () => {
+const addItem = (payload) => {
     return {
-        type: "ADD_ITEM"
+        type: "ADD_ITEM",
+        payload
     }
 };
 
@@ -45,13 +46,6 @@ const doneToggle = (payload) => {
     }
 };
 
-// const updateFilterInput = (payload) => {
-//     return {
-//         type: "UPDATE_FILTER_INPUT",
-//         payload
-//     }
-// };
-
 const showSearchResults = (payload) => {
     return {
         type: "SHOW_SEARCH_RESULTS",
@@ -59,10 +53,9 @@ const showSearchResults = (payload) => {
     }
 };
 
-const showAll = (payload) => {
+const showAll = () => {
     return {
-        type: "SHOW_ALL",
-        payload
+        type: "SHOW_ALL"
     }
 };
 
@@ -88,7 +81,6 @@ export {
     hideAlert,
     importantToggle,
     doneToggle,
-    // updateFilterInput,
     showAll,
     showDone,
     showImportant,

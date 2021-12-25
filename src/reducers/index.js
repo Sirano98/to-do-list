@@ -1,4 +1,11 @@
-const createItem = (state) => {
+import { updateLocalStorege } from "../utils/localStorege";
+
+const createItem = (state, payload) => {
+
+    if (payload) {
+        return { ...state, items: [...payload] }
+    }
+
     const newItem = {
         title: state.inputValue,
         date: new Date().toLocaleDateString(),
@@ -10,6 +17,12 @@ const createItem = (state) => {
 
     return { ...state, items: [...state.items, newItem] }
 };
+
+const deleteItem = (state, id) => {
+    const newItems = state.items.filter(item => item.id !== id);
+    updateLocalStorege(newItems);
+    return { ...state, items: newItems, visibleItems: filterItems(newItems, state.filter, state.searchInputValue) }
+}
 
 const createAlert = (type) => {
     let text = "";
@@ -31,6 +44,7 @@ const itemStateToggle = (state, payload, stateName) => {
     ]
 
     const newVisibleItems = filterItems(newData, state.filter, state.searchInputValue);
+    updateLocalStorege(newData);
 
     return { ...state, items: newData, visibleItems: newVisibleItems }
 };
@@ -39,7 +53,7 @@ const filterItems = (items, filter, searchStr) => {
     if (searchStr.trim()) {
         items = items.filter(item => item.title.indexOf(searchStr) > -1)
     }
-    console.log(items);
+
     if (filter) {
         filter = filter.toLowerCase();
         return items.filter(item => item[filter]);
@@ -49,6 +63,7 @@ const filterItems = (items, filter, searchStr) => {
 
 export {
     createItem,
+    deleteItem,
     createAlert,
     itemStateToggle,
     filterItems
