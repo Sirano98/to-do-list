@@ -18,11 +18,6 @@ export const MainPage = () => {
         }
     }, [])
 
-    useEffect(() => {
-        updateLocalStorege(items);
-    }, [items]);
-
-
     return (
         <main className="main">
             <Alert />

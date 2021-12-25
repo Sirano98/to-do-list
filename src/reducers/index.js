@@ -1,49 +1,57 @@
 import { updateLocalStorege } from "../utils/localStorege";
 
 const createItem = (state, payload) => {
+    const { items, inputValue } = state;
 
     if (payload) {
         return { ...state, items: [...payload] }
     }
 
     const newItem = {
-        title: state.inputValue,
+        title: inputValue,
         date: new Date().toLocaleDateString(),
         id: Date.now(),
         important: false,
         done: false
     }
-    state.inputValue = "";
 
-    return { ...state, items: [...state.items, newItem] }
+    state.inputValue = "";
+    const newItems = [...items, newItem];
+    updateLocalStorege(newItems);
+
+    return { ...state, items: newItems }
 };
 
 const deleteItem = (state, id) => {
-    const newItems = state.items.filter(item => item.id !== id);
+    const { items, filter, searchInputValue } = state;
+
+    const newItems = items.filter(item => item.id !== id);
     updateLocalStorege(newItems);
-    return { ...state, items: newItems, visibleItems: filterItems(newItems, state.filter, state.searchInputValue) }
+    return { ...state, items: newItems, visibleItems: filterItems(newItems, filter, searchInputValue) }
 }
 
 const createAlert = (type) => {
     let text = "";
-    type ? text = "Note has been added" : text = "Enter note text"
+    type ? text = "Note has been added" : text = "Enter note text";
     return text;
 };
 
 const itemStateToggle = (state, payload, stateName) => {
-    const index = state.items.findIndex(({ id }) => id === payload);
-    const oldItem = state.items[index];
+    const { items, filter, searchInputValue } = state;
+
+    const index = items.findIndex(({ id }) => id === payload);
+    const oldItem = items[index];
     const newItem = {
         ...oldItem,
         [stateName]: !oldItem[stateName]
     }
     const newData = [
-        ...state.items.slice(0, index),
+        ...items.slice(0, index),
         newItem,
-        ...state.items.slice(index + 1)
+        ...items.slice(index + 1)
     ]
 
-    const newVisibleItems = filterItems(newData, state.filter, state.searchInputValue);
+    const newVisibleItems = filterItems(newData, filter, searchInputValue);
     updateLocalStorege(newData);
 
     return { ...state, items: newData, visibleItems: newVisibleItems }

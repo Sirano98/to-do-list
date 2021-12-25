@@ -9,33 +9,36 @@ const initialState = {
 };
 
 export const listReducer = (state = initialState, action) => {
-    switch (action.type) {
+    const { items, searchInputValue, filter } = state;
+    const { payload, type } = action;
+
+    switch (type) {
         case "ADD_ITEM":
-            return createItem(state, action.payload)
+            return createItem(state, payload)
 
         case "REMOVE_ITEM":
-            return deleteItem(state, action.payload)
+            return deleteItem(state, payload)
 
         case "UPDATE_INPUT":
-            return { ...state, inputValue: action.payload }
+            return { ...state, inputValue: payload }
 
         case "IMPORTANT_ITEM_TOGGLE":
-            return itemStateToggle(state, action.payload, "important")
+            return itemStateToggle(state, payload, "important")
 
         case "DONE_ITEM_TOGGLE":
-            return itemStateToggle(state, action.payload, "done")
+            return itemStateToggle(state, payload, "done")
 
         case "SHOW_ALL":
-            return { ...state, visibleItems: filterItems(state.items, action.payload, state.searchInputValue), filter: "" }
+            return { ...state, visibleItems: filterItems(items, payload, searchInputValue), filter: "" }
 
         case "SHOW_DONE":
-            return { ...state, visibleItems: filterItems(state.items, action.payload, state.searchInputValue), filter: action.payload }
+            return { ...state, visibleItems: filterItems(items, payload, searchInputValue), filter: payload }
 
         case "SHOW_IMPORTANT":
-            return { ...state, visibleItems: filterItems(state.items, action.payload, state.searchInputValue), filter: action.payload }
+            return { ...state, visibleItems: filterItems(items, payload, searchInputValue), filter: payload }
 
         case "SHOW_SEARCH_RESULTS":
-            return { ...state, searchInputValue: action.payload, visibleItems: filterItems(state.items, state.filter, action.payload) }
+            return { ...state, searchInputValue: payload, visibleItems: filterItems(items, filter, payload) }
 
         default:
             return state;
