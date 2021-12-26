@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateInput, addItem, showAlert } from "../../actions";
+import { updateInput, addItem, showAlert, hideAlert } from "../../actions";
 import "./form.scss";
 
 export const Form = () => {
@@ -13,8 +13,10 @@ export const Form = () => {
         if (inputValue.trim()) {
             dispatch(addItem());
             dispatch(showAlert("success"));
+            setTimeout(() => dispatch(hideAlert()), 2500);
         } else {
             dispatch(showAlert());
+            setTimeout(() => dispatch(hideAlert()), 2500);
         }
     };
 

@@ -6,3 +6,22 @@
 .text {
     font-size: 25px;
 }
+
+.note-enter-active{
+    animation: note 800ms linear alternate-reverse;
+}
+
+.note-exit-active{
+    animation: note 800ms linear forwards;
+}
+
+@keyframes note {
+    0%{
+        opacity: 0;
+        transform: translateX(0px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(-200px);
+    }
+}

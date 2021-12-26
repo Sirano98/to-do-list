@@ -2,3 +2,17 @@
     width: 80%;
     margin: 30px auto;
 }
+
+.alert-enter {
+    opacity: 0;
+}
+
+.alert-enter-active {
+    transition: opacity 800ms ease-out;
+    opacity: 1;
+}
+
+.alert-exit-active{
+    transition: opacity 350ms ease-out;
+    opacity: 0;
+}
