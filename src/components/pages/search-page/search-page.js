@@ -13,9 +13,9 @@ export const SearchPage = () => {
     }, [])
 
     return (
-        <Fragment>
+        <main className="main">
             <Filter />
             <TodoList items={items} />
-        </Fragment>
+        </main>
     )
 };

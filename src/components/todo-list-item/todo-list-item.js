@@ -21,7 +21,7 @@ export const TodoListItem = ({ title, id, date, important, done }) => {
                 <span className={`item-text ${cls}`}>{title}</span>
                 <small className="date">{date}</small>
             </div>
-            <div>
+            <div className="item-btns">
                 <button
                     type="button"
                     className="btn btn-outline-danger btn-sm"

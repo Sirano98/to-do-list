@@ -2,14 +2,17 @@
     display: flex;
     width: 80%;
     margin: 3% auto;
-    .btn-group{
-        width: 30%;
+    justify-content: space-between;
+
+    .btn-group {
         align-self: center;
-        .btn{
+        
+        .search-btn {
             width: auto;
             margin: 0px 5px;
             border-radius: 4px !important;
         }
+        
         .btn:focus {
             border: none;
             box-shadow: none;
@@ -17,4 +20,18 @@
         }
 
     }
+
+}
+
+@media (max-width: 500px) {
+    .search-form {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn-group {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
 }

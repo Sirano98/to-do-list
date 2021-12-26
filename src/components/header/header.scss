@@ -1,4 +1,9 @@
 .header {
     padding-left: 20px;
     justify-content: flex-start;
+    .navbar-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100px;
+    }
 }

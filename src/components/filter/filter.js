@@ -26,17 +26,17 @@ export const Filter = () => {
             <div className="btn-group" role="group" aria-label="Basic example">
                 <button
                     type="button"
-                    className={`btn ${filter ? "btn-outline-primary" : "btn-primary"}`}
+                    className={`search-btn btn ${filter ? "btn-outline-primary" : "btn-primary"}`}
                     onClick={() => dispatch(showAll(""))}
                 >ALL</button>
                 <button
                     type="button"
-                    className={`btn ${filter === "done" ? "btn-primary" : "btn-outline-primary"}`}
+                    className={`search-btn btn ${filter === "done" ? "btn-primary" : "btn-outline-primary"}`}
                     onClick={() => dispatch(showDone("done"))}
                 >Done</button>
                 <button
                     type="button"
-                    className={`btn ${filter === "important" ? "btn-primary" : "btn-outline-primary"}`}
+                    className={`search-btn btn ${filter === "important" ? "btn-primary" : "btn-outline-primary"}`}
                     onClick={() => dispatch(showImportant("important"))}
                 >Important</button>
             </div>
